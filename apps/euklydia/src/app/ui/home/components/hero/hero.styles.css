@@ -1,0 +1,420 @@
+@layer library, reset, base, demo;
+/* @import 'https://unpkg.com/open-props@2.0.0-beta.5' layer(library); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
+
+@layer reset {
+
+    *,
+    ::before,
+    ::after {
+        box-sizing: border-box;
+    }
+
+    :where(:not(dialog)) {
+        margin: 0;
+    }
+}
+
+@layer base {
+    html {
+        --nav-block-size: 74px;
+        --brand-gradient: linear-gradient(227deg, #1400c7 0%, #00bbff 100%);
+
+        @media (prefers-reduced-motion: no-preference) {
+            scroll-behavior: smooth;
+        }
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        min-block-size: 100dvb;
+    }
+}
+
+@layer demo {
+
+    .section-pillars {
+        --section-block-size: max(700px, 100dvb);
+        display: grid;
+        /* background-color: white; */
+        margin-bottom: 50rem;
+        min-block-size: var(--section-block-size);
+        position: relative;
+        block-size: 100%;
+        display: grid;
+        background-color: #00211c;
+
+        >* {
+            grid-area: 1/1;
+        }
+    }
+
+    .section-wrapper {
+        position: relative;
+        display: grid;
+
+        @media (width >=960px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        overflow: clip;
+
+        @media (width < 960px) {
+            padding-block-start: calc(var(--nav-block-size) + var(--size-7));
+            padding-block-end: var(--size-7);
+        }
+    }
+
+    .content-wrapper {
+        display: grid;
+
+        @media (width < 960px) {
+            gap: var(--size-7);
+        }
+    }
+
+    .meta {
+        display: grid;
+        gap: var(--size-3);
+    }
+
+    .content {
+        display: grid;
+        inline-size: 100%;
+        place-items: center;
+        padding-block: var(--size-7);
+        padding-inline: var(--size-5);
+
+        & .meta {
+            max-width: 580;
+        }
+
+        @media (width >=960px) {
+            padding: var(--size-10);
+            min-block-size: 100cqb;
+            place-items: center end;
+        }
+
+        @media (width < 960px) {
+            gap: var(--size-5);
+        }
+    }
+
+    .mobile-visual {
+        width: 80svw;
+        inline-size: 100%;
+        aspect-ratio: var(--ratio-square);
+
+        @media (width >=960px) {
+            display: none;
+        }
+    }
+
+    .firefox-content {
+        display: grid;
+        grid-template-columns: 2fr;
+        gap: 2rem;
+    }
+
+    .desktop-visual {
+        .firefox-image {
+            max-width: 20rem;
+        }
+
+        @media (width <=960px) {
+            display: none;
+        }
+    }
+
+    .subtitle {
+        font-size: 24px;
+        line-height: 1.5;
+        max-inline-size: 36ch;
+        color: #47A593;
+
+        @media (width < 960px) {
+            font-size: var(--font-size-6);
+        }
+    }
+
+    .description {
+        margin: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        max-inline-size: 60ch;
+        text-wrap: pretty;
+
+        @media (width < 960px) {
+            max-inline-size: 40ch;
+            font-size: var(--font-size-3);
+        }
+    }
+
+    .visual {
+        display: grid;
+        position: sticky;
+        block-size: var(--section-block-size);
+        inset-block-start: 0;
+        container-type: size;
+
+        @media (width < 960px) {
+            display: none;
+        }
+    }
+
+    .card-wrapper {
+        container-type: size;
+        display: grid;
+        place-items: center;
+        /* overflow: clip; */
+
+        >* {
+            grid-area: 1/1;
+        }
+    }
+
+    .card {
+        aspect-ratio: var(--ratio-square);
+        inline-size: 70cqi;
+        border-radius: var(--radius-3);
+        scale: 0.4;
+    }
+
+    .card-img {
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+    }
+
+    .card-1 {
+        scale: 1;
+    }
+
+    .card-2 {
+        left: '-0%';
+        bottom: '10%';
+        /* transform: translateX(-120%); */
+        translate: -50cqi 20cqb;
+        opacity: 0.5;
+    }
+
+    .card-3 {
+        bottom: '10%';
+        right: '-0%';
+        translate: 50cqi 20cqb;
+        opacity: 0.5;
+    }
+
+    .card-4 {
+        left: '-0%';
+        bottom: '10%';
+        /* transform: translateX(120%); */
+        translate: -50cqi 20cqb;
+        opacity: 0.5;
+    }
+
+    .content-2 {
+
+        @media (width >=960px) {
+            z-index: 3;
+            transform: translateX(500px);
+        }
+    }
+
+    .content-4 {
+
+
+        @media (width >=960px) {
+            z-index: 3;
+            transform: translateX(500px);
+        }
+    }
+
+    .title {
+        color: #43DDAA;
+        font-size: 38px;
+        margin-bottom: 16px;
+    }
+
+    .firefox-section-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+
+        .firefox-wrapper {
+            width: 74rem;
+
+            .firefox-content {
+                margin: 2rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 4rem;
+                /* justify-content: center;
+                align-items: center; */
+
+                &:nth-child(even) .meta {
+                    order: 3;
+                }
+
+                &:nth-child(even) .image-container {
+                    order: 2;
+                }
+            }
+
+            /* .image-container,
+            .meta {
+                width: 35rem;
+            } */
+        }
+    }
+}
+
+@supports (animation-timeline: view()) {
+
+    .section-wrapper {
+        timeline-scope: --content-1, --content-2, --content-3,
+            --content-4,
+            --content-5;
+        view-timeline-name: --section;
+    }
+
+    .content-1 {
+        view-timeline-name: --content-1;
+    }
+
+    .content-2 {
+        view-timeline-name: --content-2;
+    }
+
+    .content-3 {
+        view-timeline-name: --content-3;
+    }
+
+    .content-4 {
+        view-timeline-name: --content-4;
+    }
+
+    .content-5 {
+        view-timeline-name: --content-5;
+    }
+
+    .card {
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    .card-1 {
+        animation-timeline: --content-1;
+        animation-name: slide-up-first-card;
+    }
+
+    .card-2 {
+        position: fixed;
+        animation-timeline: --content-2;
+        animation-name: slide-up-card;
+
+    }
+
+    .card-3 {
+        position: fixed;
+        animation-timeline: --content-3;
+        animation-name: slide-up-card-4;
+    }
+
+    .card-4 {
+        position: fixed;
+        animation-timeline: --content-4;
+        animation-name: slide-up-card-4;
+
+    }
+
+    .card-5 {
+
+        animation-timeline: --content-5;
+        animation-name: slide-up-card;
+
+        /* @media (width >=960px) {
+            position: fixed;
+            left: -20%;
+        } */
+    }
+
+    /* .section-wrapper &:has(.content-wrapper .content-2) {
+        order: -1;
+    } */
+
+    @keyframes update-hue {
+        0% {
+            filter: hue-rotate(210deg);
+        }
+
+        25% {
+            filter: hue-rotate(150deg);
+        }
+
+        45% {
+            filter: hue-rotate(300deg);
+        }
+
+        60% {
+            filter: hue-rotate(4deg);
+        }
+    }
+
+    @keyframes slide-up-first-card {
+        50% {
+            translate: 0;
+            opacity: 1;
+        }
+
+        90% {
+            translate: 0 -65cqi;
+            scale: 0.6;
+        }
+
+        100% {
+            translate: 0 -115cqi;
+            opacity: 0;
+        }
+    }
+
+    @keyframes slide-up-card {
+        50% {
+            opacity: 1;
+            translate: 0;
+            scale: 1;
+        }
+
+        90% {
+            opacity: 0.5;
+            scale: 0.6;
+            translate: 0 -90cqb;
+        }
+
+        100% {
+            translate: 0 -180cqi;
+            opacity: 0;
+        }
+    }
+
+    @keyframes slide-up-card-4 {
+        50% {
+            opacity: 1;
+            translate: 0 -15cqb;
+            scale: 1;
+        }
+
+        90% {
+            opacity: 0.5;
+            scale: 0.6;
+            translate: 0 -90cqb;
+        }
+
+        100% {
+            translate: 0 -180cqi;
+            opacity: 0;
+        }
+    }
+}

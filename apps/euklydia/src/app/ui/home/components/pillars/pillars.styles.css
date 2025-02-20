@@ -1,0 +1,113 @@
+.pillars {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    &.pillars-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 4rem;
+        padding: 0 auto;
+        margin: 0 auto;
+        position: relative;
+        margin: 40rem 0;
+        background-color: #00211c;
+    }
+}
+
+.pillar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: 30rem;
+    max-width: 80rem;
+    align-items: center;
+    /* position: relative; */
+}
+
+.pillar-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+
+    .title {
+        color: #43DDAA;
+    }
+
+    .subtitle {
+        color: #47A593;
+    }
+
+    .description {
+        text-justify: inter-word;
+    }
+}
+
+/* .pillar-image {
+    position: relative;
+
+
+} */
+
+/* 
+  The .image-fixed class ensures images stay fixed at the bottom.
+  You can customize the fixed position using CSS custom properties.
+*/
+.image-fixed {
+    transition: all .3s ease;
+    /* position: fixed;*/
+    bottom: var(--fixed-bottom, 5px);
+    /* default is 200px from the bottom */
+    left: var(--fixed-left);
+    /* transform: translateX(-50%); */
+    /* width: 500px;
+    height: auto; */
+}
+
+/* Optionally style individual images for further customization */
+.image-1 {
+    /* e.g., override --fixed-bottom if needed */
+    --fixed-bottom: -100px;
+    --fixed-left: calc(50%);
+}
+
+.image-2 {
+    /* Customize as needed */
+    --fixed-bottom: -100px;
+    --fixed-left: calc(1 * 200px - 250px + 250px);
+}
+
+.image-3 {
+    /* Customize as needed */
+    --fixed-bottom: -100px;
+    --fixed-left: calc(100vw - 400px);
+    ;
+}
+
+.image-4 {
+    /* Customize as needed */
+    --fixed-bottom: -100px;
+    --fixed-left: calc(2 * 200px - 250px + 250px);
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    .pillar {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .pillar:nth-child(even) .pillar-content {
+        order: 2;
+    }
+
+    .pillar:nth-child(even) .pillar-image {
+        order: 1;
+    }
+}
