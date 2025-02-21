@@ -76,9 +76,18 @@
     }
 
     .meta {
-        max-width: 500px;
         display: grid;
         gap: var(--size-3);
+
+        @media (width >=960px) {
+            max-width: 500px;
+        }
+
+        @media (width <=960px) {
+            max-width: 100%;
+        }
+
+        /* max-width: 500px; */
     }
 
     .content {
@@ -88,9 +97,8 @@
         padding-block: var(--size-7);
         padding-inline: var(--size-5);
 
-        & .meta {
-            max-width: 580;
-        }
+
+
 
         @media (width >=960px) {
             padding: var(--size-10);
@@ -99,18 +107,33 @@
         }
 
         @media (width < 960px) {
+            margin: 30px 0;
+            max-block-size: 100vw;
             gap: var(--size-5);
         }
     }
 
     .mobile-visual {
-        width: 80svw;
+        display: flex;
+        justify-content: center;
         inline-size: 100%;
         aspect-ratio: var(--ratio-square);
+        animation-name: slide-up-mobile-version;
+        animation-timeline: view();
 
         @media (width >=960px) {
             display: none;
         }
+
+
+        /* @media (width <=400px) { */
+        max-width: 100%;
+
+        img {
+            max-width: 400px;
+        }
+
+        /* } */
     }
 
     .firefox-content {
@@ -206,7 +229,7 @@
     .card-3 {
         /* bottom: '10%';
         right: '-0%'; */
-        translate: 75cqi 20cqb;
+        translate: 78cqi 20cqb;
         opacity: 0.5;
     }
 
@@ -422,8 +445,60 @@
         }
     }
 
+    @keyframes slide-up-mobile-version {
+        0% {
+            scale: 1;
+        }
+
+        10% {
+            opacity: 1;
+            scale: 1;
+        }
+
+        20% {
+            opacity: 1;
+            scale: 1;
+        }
+
+        50% {
+            opacity: 1;
+            scale: 1;
+        }
+
+        60% {
+            opacity: 1;
+            scale: 1;
+        }
+
+        70% {
+            opacity: 0.5;
+            scale: 0.85;
+        }
+
+        80% {
+            opacity: 0.4;
+            scale: 0.7;
+        }
+
+        90% {
+            opacity: 0.4;
+            scale: 0.55;
+        }
+
+        100% {
+            opacity: 0.6;
+            scale: 0.4;
+        }
+    }
+
     @keyframes slide-up-card {
         50% {
+            opacity: 1;
+            translate: 0;
+            scale: 1;
+        }
+
+        60% {
             opacity: 1;
             translate: 0;
             scale: 1;

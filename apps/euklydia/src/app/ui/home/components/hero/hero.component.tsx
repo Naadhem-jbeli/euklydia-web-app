@@ -99,7 +99,7 @@ const HeroSection = () => {
                         : pillar.id === 3
                         ? {
                             bottom: '0%',
-                            right: '15%',
+                            right: '18%',
                           }
                         : pillar.id === 4
                         ? {
