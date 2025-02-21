@@ -8,8 +8,6 @@ const isFirefox = () => navigator.userAgent.toLowerCase().includes('firefox');
 gsap.registerPlugin(ScrollTrigger);
 const HeroSection = () => {
   const card2Ref = useRef<HTMLDivElement>(null);
-  const card3Ref = useRef<HTMLDivElement>(null);
-  const card4Ref = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,58 +15,6 @@ const HeroSection = () => {
       // Disable all animations in Firefox
       return;
     }
-    // const mm = gsap.matchMedia();
-
-    // mm.add('(min-width: 960px)', () => {
-    //   // Animate card-2 and card-4 when section comes into view
-    //   ScrollTrigger.create({
-    //     trigger: sectionRef.current,
-    //     start: 'top center',
-    //     end: 'bottom center',
-    //     scrub: 2,
-    //     // markers: true,
-    //     onEnter: () => {
-    //       gsap.to(card2Ref.current, {
-    //         position: 'fixed',
-    //         left: '-0%',
-    //         bottom: '10%',
-    //         duration: 0.5,
-    //         ease: 'power2.out',
-    //       });
-
-    //       gsap.to(card3Ref.current, {
-    //         position: 'fixed',
-    //         bottom: '10%',
-    //         right: '-0%',
-    //         duration: 0.5,
-    //         ease: 'power2.out',
-    //         delay: 0,
-    //       });
-
-    //       gsap.to(card4Ref.current, {
-    //         position: 'fixed',
-    //         left: '-0%',
-    //         bottom: '10%',
-    //         duration: 0.5,
-    //         ease: 'power2.out',
-    //         delay: 0,
-    //       });
-    //     },
-    //     onLeaveBack: () => {
-    //       gsap.to([card2Ref.current, card3Ref.current, card4Ref.current], {
-    //         position: 'relative',
-    //         left: 'auto',
-    //         duration: 0.3,
-    //         overwrite: 'auto',
-    //       });
-    //     },
-    //   });
-    // });
-
-    // return () => {
-    //   mm.revert();
-    //   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    // };
   }, []);
   return (
     <div ref={sectionRef} className="section-pillars">
@@ -82,7 +28,7 @@ const HeroSection = () => {
           className={`${isFirefox() ? 'firefox-wrapper' : 'content-wrapper'}`}
         >
           {pillars2.map((pillar, index) => (
-            <div key={pillar.id}>
+            <React.Fragment key={pillar.id}>
               <>
                 {isFirefox() ? (
                   <div className="firefox-content">
@@ -110,7 +56,10 @@ const HeroSection = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className={`content content-${index + 1}`}>
+                  <div
+                    className={`content content-${index + 1}`}
+                    style={{ zIndex: 30 }}
+                  >
                     <div className="mobile-visual">
                       <img src={pillar.image} alt="" />
                     </div>
@@ -127,7 +76,7 @@ const HeroSection = () => {
                   </div>
                 )}
               </>
-            </div>
+            </React.Fragment>
           ))}
         </div>
 
@@ -136,77 +85,35 @@ const HeroSection = () => {
           <div className="visual">
             <div className="card-wrapper">
               {pillars2.map((pillar, index) => {
-                if (pillar.id === 2) {
-                  return (
-                    <div
-                      key={pillar.id}
-                      ref={card2Ref}
-                      className={`card card-${pillar.id}`}
-                      style={{
-                        left: '-0%',
-                        bottom: '0%',
-                      }}
-                    >
-                      <img
-                        className="card-img"
-                        src={pillar.image}
-                        alt={pillar.alt}
-                      />
-                    </div>
-                  );
-                }
-                if (pillar.id === 3) {
-                  return (
-                    <div
-                      key={pillar.id}
-                      ref={card3Ref}
-                      className={`card card-${pillar.id}`}
-                      style={{
-                        bottom: '0%',
-                        right: '-0%',
-                      }}
-                    >
-                      <img
-                        className="card-img"
-                        src={pillar.image}
-                        alt={pillar.alt}
-                      />
-                    </div>
-                  );
-                }
-                if (pillar.id === 4) {
-                  return (
-                    <div
-                      key={pillar.id}
-                      ref={card4Ref}
-                      className={`card card-${pillar.id}`}
-                      style={{
-                        left: '-0%',
-                        bottom: '0%',
-                      }}
-                    >
-                      <img
-                        className="card-img"
-                        src={pillar.image}
-                        alt={pillar.alt}
-                      />
-                    </div>
-                  );
-                }
-
                 return (
                   <div
                     key={pillar.id}
-                    className={`card card-${pillar.id} ${
-                      index % 2 === 0 ? 'card-left' : 'card-right'
-                    }`}
+                    ref={card2Ref}
+                    className={`card card-${pillar.id}`}
+                    style={
+                      pillar.id === 2
+                        ? {
+                            left: '15%',
+                            bottom: '0%',
+                          }
+                        : pillar.id === 3
+                        ? {
+                            bottom: '0%',
+                            right: '15%',
+                          }
+                        : pillar.id === 4
+                        ? {
+                            left: '15%',
+                            bottom: '0%',
+                          }
+                        : {}
+                    }
                   >
                     <img
                       className="card-img"
                       src={pillar.image}
                       alt={pillar.alt}
                     />
-                    {/* {pillar.image} */}
                   </div>
                 );
               })}
