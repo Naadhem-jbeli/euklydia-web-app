@@ -38,22 +38,16 @@
     .section-pillars {
         --section-block-size: max(700px, 100dvb);
         display: grid;
-        /* background-color: white; */
         margin: 0 auto;
-        /* min-block-size: var(--section-block-size); */
         position: relative;
         block-size: 100%;
         background-color: #00211c;
 
-        /* >* {
-            grid-area: 1/1;
-        } */
     }
 
     .section-wrapper {
         position: relative;
         display: grid;
-        /* overflow: clip; */
 
         @media (width >=960px) {
             grid-template-columns: 1fr 1fr;
@@ -86,8 +80,6 @@
             max-width: 100%;
         }
 
-
-        /* max-width: 500px; */
     }
 
     .content {
@@ -293,11 +285,6 @@
                     order: 2;
                 }
             }
-
-            /* .image-container,
-            .meta {
-                width: 35rem;
-            } */
         }
     }
 }
