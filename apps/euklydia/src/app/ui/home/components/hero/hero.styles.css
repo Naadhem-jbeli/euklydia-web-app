@@ -29,7 +29,7 @@
 
     body {
         font-family: 'Inter', sans-serif;
-        min-block-size: 100dvb;
+        /* min-block-size: 100dvb; */
     }
 }
 
@@ -39,27 +39,26 @@
         --section-block-size: max(700px, 100dvb);
         display: grid;
         /* background-color: white; */
-        margin: 50rem auto;
+        margin: 0 auto;
         /* min-block-size: var(--section-block-size); */
         position: relative;
         block-size: 100%;
-        display: grid;
         background-color: #00211c;
 
-        >* {
+        /* >* {
             grid-area: 1/1;
-        }
+        } */
     }
 
     .section-wrapper {
         position: relative;
         display: grid;
+        /* overflow: clip; */
 
         @media (width >=960px) {
             grid-template-columns: 1fr 1fr;
         }
 
-        overflow: clip;
 
         @media (width < 960px) {
             padding-block-start: calc(var(--nav-block-size) + var(--size-7));
@@ -87,6 +86,7 @@
             max-width: 100%;
         }
 
+
         /* max-width: 500px; */
     }
 
@@ -111,6 +111,10 @@
             max-block-size: 100vw;
             gap: var(--size-5);
         }
+
+        @media (width <=620px) {
+            grid-template-rows: 1fr 1fr;
+        }
     }
 
     .mobile-visual {
@@ -126,14 +130,12 @@
         }
 
 
-        /* @media (width <=400px) { */
         max-width: 100%;
 
         img {
             max-width: 400px;
         }
 
-        /* } */
     }
 
     .firefox-content {
@@ -169,6 +171,7 @@
         line-height: 1.5;
         max-inline-size: 60ch;
         text-wrap: pretty;
+        text-align: justify;
 
         @media (width < 960px) {
             max-inline-size: 40ch;
@@ -222,7 +225,7 @@
         /* left: '-0%';
         bottom: '10%'; */
         /* transform: translateX(-120%); */
-        translate: -75cqi 20cqb;
+        translate: -77cqi 20cqb;
         opacity: 0.5;
     }
 
@@ -237,7 +240,7 @@
         /* left: '-0%';
         bottom: '10%'; */
         /* transform: translateX(120%); */
-        translate: -75cqi 20cqb;
+        translate: -77cqi 20cqb;
         opacity: 0.5;
     }
 
@@ -410,7 +413,7 @@
         50% {
             translate: 0;
             opacity: 1;
-            translate: 0 -15cqb;
+            translate: 0 -20cqb;
             scale: 1;
         }
 
@@ -422,24 +425,24 @@
 
         70% {
             opacity: 0.5;
-            translate: 0 -30cqb;
+            translate: -3cqi -30cqb;
             scale: 0.85;
         }
 
         80% {
             opacity: 0.4;
-            translate: 0 -50cqb;
+            translate: -5cqi -50cqb;
             scale: 0.7;
         }
 
         90% {
             opacity: 0.4;
-            translate: 0 -70cqb;
+            translate: -5cqi -60cqb;
             scale: 0.55;
         }
 
         100% {
-            translate: 0 -180cqi;
+            translate: -3cqi -180cqi;
             opacity: 0.6;
             scale: 0.4;
         }

@@ -1,0 +1,287 @@
+@layer library, reset, base, demo;
+/* @import 'https://unpkg.com/open-props@2.0.0-beta.5' layer(library); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
+
+@layer reset {
+
+    *,
+    ::before,
+    ::after {
+        box-sizing: border-box;
+    }
+
+    :where(:not(dialog)) {
+        margin: 0;
+    }
+}
+
+@layer base {
+    html {
+
+        --translate-content: 550px;
+        --nav-block-size: 74px;
+        --brand-gradient: linear-gradient(227deg, #1400c7 0%, #00bbff 100%);
+
+        @media (prefers-reduced-motion: no-preference) {
+            scroll-behavior: smooth;
+        }
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        /* min-block-size: 100dvb; */
+    }
+}
+
+@layer demo {
+
+    .firefox-section-pillars {
+        --section-block-size: max(700px, 100dvb);
+        display: grid;
+        /* background-color: white; */
+        margin: 50rem auto;
+        /* min-block-size: var(--section-block-size); */
+        position: relative;
+        block-size: 100%;
+        background-color: #00211c;
+
+
+        .content-wrapper {
+            display: grid;
+
+            @media (width < 960px) {
+                gap: var(--size-7);
+            }
+        }
+
+        .meta {
+            display: grid;
+            gap: var(--size-3);
+
+            @media (width >=960px) {
+                max-width: 500px;
+            }
+
+            @media (width <=960px) {
+                max-width: 100%;
+            }
+
+
+            /* max-width: 500px; */
+        }
+
+        .content {
+            display: grid;
+            inline-size: 100%;
+            /* margin: 50px; */
+            place-items: center;
+            padding-block: var(--size-7);
+            padding-inline: var(--size-5);
+
+
+
+
+            @media (width >=960px) {
+                padding: var(--size-10);
+                min-block-size: 500px;
+                place-items: center end;
+            }
+
+            @media (width < 960px) {
+                margin: 30px 0;
+                max-block-size: 100vw;
+                gap: var(--size-5);
+            }
+
+            @media (width <=620px) {
+                grid-template-rows: 1fr 1fr;
+            }
+        }
+
+        .mobile-visual {
+            display: flex;
+            justify-content: center;
+            inline-size: 100%;
+            aspect-ratio: var(--ratio-square);
+            animation-name: slide-up-mobile-version;
+            animation-timeline: view();
+
+            @media (width >=960px) {
+                display: none;
+            }
+
+
+            max-width: 100%;
+
+            img {
+                max-width: 400px;
+            }
+
+        }
+
+        .firefox-content {
+            display: grid;
+            grid-template-columns: 2fr;
+            gap: 2rem;
+        }
+
+        .desktop-visual {
+            .firefox-image {
+                max-width: 500px;
+            }
+
+            @media (width <=960px) {
+                display: none;
+            }
+        }
+
+        .subtitle {
+            font-size: 20px;
+            line-height: 1.5;
+            max-inline-size: 36ch;
+            color: #47A593;
+
+            @media (width < 960px) {
+                font-size: var(--font-size-6);
+            }
+        }
+
+        .description {
+            margin: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+            max-inline-size: 60ch;
+            text-wrap: pretty;
+            text-align: justify;
+
+            @media (width < 960px) {
+                max-inline-size: 40ch;
+                font-size: var(--font-size-3);
+            }
+        }
+
+        .visual {
+            display: grid;
+            position: sticky;
+            block-size: var(--section-block-size);
+            inset-block-start: 0;
+            container-type: size;
+
+            @media (width < 960px) {
+                display: none;
+            }
+        }
+
+        .card-wrapper {
+            container-type: size;
+            display: grid;
+            place-items: center;
+            /* overflow: clip; */
+
+            >* {
+                grid-area: 1/1;
+            }
+        }
+
+        .card {
+            aspect-ratio: var(--ratio-square);
+            inline-size: 70cqi;
+            border-radius: var(--radius-3);
+            scale: 0.4;
+        }
+
+        .card-img {
+            display: block;
+            inline-size: 100%;
+            block-size: 100%;
+            object-fit: cover;
+        }
+
+        .card-1 {
+            transform: translateX(-30%);
+            scale: 1;
+        }
+
+        .card-2 {
+            /* left: '-0%';
+                bottom: '10%'; */
+            /* transform: translateX(-120%); */
+            translate: -77cqi 20cqb;
+            opacity: 0.5;
+        }
+
+        .card-3 {
+            /* bottom: '10%';
+                right: '-0%'; */
+            translate: 78cqi 20cqb;
+            opacity: 0.5;
+        }
+
+        .card-4 {
+            /* left: '-0%';
+                bottom: '10%'; */
+            /* transform: translateX(120%); */
+            translate: -77cqi 20cqb;
+            opacity: 0.5;
+        }
+
+
+        .content-2 {
+
+            @media (width >=960px) {
+                z-index: 3;
+                transform: translateX(var(--translate-content));
+            }
+        }
+
+        .content-4 {
+
+
+            @media (width >=960px) {
+                z-index: 3;
+                transform: translateX(var(--translate-content));
+            }
+        }
+
+        .title {
+            color: #43DDAA;
+            font-size: 38px;
+            margin-bottom: 16px;
+        }
+
+        .firefox-section-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+
+            .firefox-wrapper {
+                width: 74rem;
+
+                .firefox-content {
+                    margin: 2rem;
+                    padding: 40px;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 4rem;
+                    /* justify-content: center;
+                        align-items: center; */
+
+                    @media (width >=920px) {
+                        &:nth-child(even) .meta {
+                            order: 2;
+                        }
+
+                        &:nth-child(even) .image-container {
+                            order: 3;
+                        }
+                    }
+                }
+
+            }
+        }
+
+    }
+
+
+}
