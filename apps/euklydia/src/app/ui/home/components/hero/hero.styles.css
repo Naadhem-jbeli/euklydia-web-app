@@ -192,23 +192,23 @@
     }
 
     .card-2 {
-        left: '-0%';
-        bottom: '10%';
+        /* left: '-0%';
+        bottom: '10%'; */
         /* transform: translateX(-120%); */
         translate: -50cqi 20cqb;
         opacity: 0.5;
     }
 
     .card-3 {
-        bottom: '10%';
-        right: '-0%';
+        /* bottom: '10%';
+        right: '-0%'; */
         translate: 50cqi 20cqb;
         opacity: 0.5;
     }
 
     .card-4 {
-        left: '-0%';
-        bottom: '10%';
+        /* left: '-0%';
+        bottom: '10%'; */
         /* transform: translateX(120%); */
         translate: -50cqi 20cqb;
         opacity: 0.5;
@@ -301,6 +301,7 @@
     }
 
     .card {
+        opacity: 0.3;
         animation-timing-function: linear;
         animation-fill-mode: forwards;
     }
@@ -313,7 +314,7 @@
     .card-2 {
         position: fixed;
         animation-timeline: --content-2;
-        animation-name: slide-up-card;
+        animation-name: slide-up-card-4;
 
     }
 
@@ -341,10 +342,6 @@
         } */
     }
 
-    /* .section-wrapper &:has(.content-wrapper .content-2) {
-        order: -1;
-    } */
-
     @keyframes update-hue {
         0% {
             filter: hue-rotate(210deg);
@@ -370,7 +367,8 @@
         }
 
         90% {
-            translate: 0 -65cqi;
+            opacity: 0.2;
+            translate: 0 -72cqi;
             scale: 0.6;
         }
 
@@ -388,9 +386,9 @@
         }
 
         90% {
-            opacity: 0.5;
+            opacity: 0.2;
             scale: 0.6;
-            translate: 0 -90cqb;
+            translate: 0 -115cqb;
         }
 
         100% {
@@ -402,14 +400,14 @@
     @keyframes slide-up-card-4 {
         50% {
             opacity: 1;
-            translate: 0 -15cqb;
+            translate: 0 -25cqb;
             scale: 1;
         }
 
-        90% {
-            opacity: 0.5;
+        95% {
+            opacity: 0.2;
             scale: 0.6;
-            translate: 0 -90cqb;
+            translate: 0 -115cqb;
         }
 
         100% {

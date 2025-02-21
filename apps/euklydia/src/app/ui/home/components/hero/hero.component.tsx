@@ -144,7 +144,7 @@ const HeroSection = () => {
                       className={`card card-${pillar.id}`}
                       style={{
                         left: '-0%',
-                        bottom: '10%',
+                        bottom: '0%',
                       }}
                     >
                       <img
@@ -162,7 +162,7 @@ const HeroSection = () => {
                       ref={card3Ref}
                       className={`card card-${pillar.id}`}
                       style={{
-                        bottom: '10%',
+                        bottom: '0%',
                         right: '-0%',
                       }}
                     >
@@ -182,7 +182,7 @@ const HeroSection = () => {
                       className={`card card-${pillar.id}`}
                       style={{
                         left: '-0%',
-                        bottom: '10%',
+                        bottom: '0%',
                       }}
                     >
                       <img
